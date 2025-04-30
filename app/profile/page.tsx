@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import Link from "next/link";
+import SignOutButton from "@/components/SignOutButton";
+
 
 export default async function ProfilePage() {
     const session = await auth();
@@ -25,13 +26,9 @@ export default async function ProfilePage() {
                     alt="Profile Picture"
                     width={100}
                     height={100}
-                    style={{borderRadius: "50%", marginTop: "20px", border: "2px solid #ddd"}}/>
+                    style={{borderRadius: "50%", marginTop: "20px", border: "2px solid grey"}}/>
             )}
-            <Link href="/api/auth/signout">
-                <button style={{padding: "12px 24px", fontSize: "16px", fontWeight: "bold", backgroundColor: "black", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", marginTop: "30px", display: "block", width: "100%", textAlign: "center"}}>
-                    Sign Out
-                </button>
-            </Link>
+            <SignOutButton />
         </div>
     );
 }
